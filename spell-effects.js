@@ -339,6 +339,7 @@ export function validSpellEffects(effects) {
   return Array.isArray(effects) && effects.length <= spellEffects.length &&
     effects.every(e => e && spellEffectById.has(e.catalogId) &&
       typeof e.source === 'string' && e.source.length <= 200 &&
+      (e.sourceId === undefined || e.sourceId === null || (typeof e.sourceId === 'string' && e.sourceId.length > 0 && e.sourceId.length <= 200)) &&
       typeof e.duration === 'string' && e.duration.length <= 200 &&
       typeof e.note === 'string' && e.note.length <= 2000 &&
       typeof e.concentration === 'boolean') &&

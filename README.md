@@ -41,3 +41,13 @@ L’onglet **Effets de sorts**, à côté d’**États & épuisement**, propose 
 Les effets actifs sont repliables pour conserver une fiche compacte. Cliquer sur leur nom pour lire leurs conséquences, sur « Modifier le suivi » pour changer leurs indications, ou sur la croix pour les retirer. Les effets sont sauvegardés et inclus dans l’export JSON ; les anciennes sauvegardes restent compatibles.
 
 Le suivi des conséquences et des échéances est manuel : les chiffres de la fiche ne changent pas automatiquement. Aucun jet de dé n’est effectué. Voir [SOURCES.md](SOURCES.md) pour la liste des références et les limites du suivi.
+
+## Lanceurs et concentration
+
+Dans la fenêtre d’un effet de sort, sélectionner le **Lanceur dans le combat**. Le lien utilise le participant précis : deux créatures de même nom restent distinctes. Pour une source extérieure au combat, choisir « Autre / hors combat » et saisir son nom.
+
+La fiche du lanceur affiche un bandeau **Concentration** avec le sort maintenu et ses cibles, même dans l’onglet des états. La liste d’initiative le signale également. L’onglet **Effets de sorts** distingue les **Sorts lancés** des **Effets reçus**, y compris les sorts sans concentration. Les noms de cibles sont cliquables.
+
+**Rompre la concentration** retire, après confirmation, les effets à concentration liés à ce lanceur sur toutes les cibles du combat. Les sorts sans concentration et ceux des autres lanceurs sont conservés. Retirer une cible ou un effet actualise immédiatement le bandeau ; il disparaît après le dernier effet à concentration. Les jets de sauvegarde, échéances et conséquences mécaniques restent manuels. Si plusieurs sorts à concentration sont indiqués pour le même lanceur, un avertissement rappelle la règle ; aucun n’est supprimé sans action du MJ.
+
+Les anciens effets avec un nom saisi en texte sont reconnus si ce nom correspond à un seul participant (sans tenir compte des majuscules ou des espaces autour). En cas de doublon ou d’absence de correspondance, modifier l’effet et sélectionner le bon lanceur. Les liens sont inclus dans les sauvegardes JSON. Après retrait d’un lanceur du combat, ses effets sur les autres cibles restent présents pour permettre au MJ de décider de leur sort ; sa fiche n’est plus liée.
