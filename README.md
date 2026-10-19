@@ -33,3 +33,11 @@ Le bestiaire initial est limité à trois exemples, adaptés en français du *Sy
 ## Vérifications
 
 Node.js 18+ pour exécuter `npm test` (moteur de combat). Aucun paquet à installer. L’interface doit aussi être vérifiée dans un navigateur : création et modification de fiches, ajout de doublons, initiative, dégâts/soins, états, passage des tours, rechargement, export/import.
+
+## Effets de sorts
+
+L’onglet **Effets de sorts**, à côté d’**États & épuisement**, propose 30 effets issus des sorts du SRD 5.1 (2014) : bonus/malus, protections, modifications de vitesse ou de taille, résistances, PV temporaires, etc. Ouvrir le catalogue, choisir un sort et lire son résumé avant de l’appliquer au participant sélectionné. Renseigner le lanceur, la durée, la concentration et les précisions utiles (bonus, variante, résistance choisie, PV temporaires restants…).
+
+Les effets actifs sont repliables pour conserver une fiche compacte. Cliquer sur leur nom pour lire leurs conséquences, sur « Modifier le suivi » pour changer leurs indications, ou sur la croix pour les retirer. Les effets sont sauvegardés et inclus dans l’export JSON ; les anciennes sauvegardes restent compatibles.
+
+Le suivi des conséquences et des échéances est manuel : les chiffres de la fiche ne changent pas automatiquement. Aucun jet de dé n’est effectué. Voir [SOURCES.md](SOURCES.md) pour la liste des références et les limites du suivi.
