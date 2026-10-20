@@ -11,3 +11,17 @@ export const examples=[
  {id:'squelette',name:'Squelette',kind:'Créature',maxHp:13,ac:13,speed:'9 m',stats:[10,14,15,6,8,5],skills:'Vision dans le noir 18 m. Perception passive 9.',actions:'Épée courte : +4 au toucher, allonge 1,50 m. Dégâts : 1d6 + 2 perforants.\nArc court : +4 au toucher, portée 24/96 m. Dégâts : 1d6 + 2 perforants.',traits:'Vulnérabilité : contondant. Immunités : poison ; états épuisement et empoisonné.'},
  {id:'loup',name:'Loup',kind:'Créature',maxHp:11,ac:13,speed:'12 m',stats:[12,15,12,3,12,6],skills:'Discrétion +4, Perception +3',actions:'Morsure : +4 au toucher, allonge 1,50 m. Dégâts : 2d4 + 2 perforants. La cible doit réussir un jet de sauvegarde de Force DD 11 ou tomber à terre.',traits:'Odorat et ouïe aiguisés : avantage aux tests de Perception correspondants. Tactique de groupe : avantage aux attaques si un allié non incapable d’agir est à 1,50 m de la cible.'}
 ];
+
+// Même ordre, mêmes exclusions et même changement de round que « Tour suivant ».
+export function upcomingTurns(combat, count = 3) {
+  const cursor = {...combat, participants: combat.participants};
+  const result = [];
+  if (!cursor.participants.some(p => p.hp > 0)) return result;
+  if (!cursor.started) cursor.active = null;
+  for (let i = 0; i < count; i++) {
+    advance(cursor);
+    const participant = cursor.participants.find(p => p.id === cursor.active);
+    if (participant) result.push({participant, round: cursor.round});
+  }
+  return result;
+}
