@@ -14,7 +14,7 @@ Ouvrir l’adresse locale du serveur dans son navigateur. `npm start` lance la m
 
 ## Utilisation
 
-1. Préparer et nommer une rencontre dans « Rencontres », puis créer les fiches PJ et PNJ dans « Fiches », avec caractéristiques, compétences, attaques, sorts et traits. Le bestiaire local propose 334 entrées du SRD 5.1 de 2014 en français.
+1. Préparer et nommer une rencontre dans « Rencontres », puis créer les fiches PJ et PNJ dans « Fiches », avec caractéristiques, compétences, attaques, sorts et traits. Le catalogue local propose 588 profils en français : 334 entrées du SRD 5.1 de 2014 et 254 profils de campagne supplémentaires.
 2. Ajouter les participants à la rencontre ; une créature peut être ajoutée plusieurs fois.
 3. Saisir l’initiative commune des monstres et les initiatives individuelles des PJ et PNJ, puis commencer le combat. À initiative égale, les PJ/PNJ jouent avant le groupe de monstres ; les égalités dans chacun de ces ensembles sont départagées alphabétiquement.
 4. Cliquer sur un participant pour consulter sa fiche compacte en deux colonnes et gérer ses PV, CA, états, épuisement et notes. Le menu « Appliquer un état » ajoute un état et affiche ses effets ; la croix le retire. « ? Règles des états » ouvre le référentiel des 14 états et de l’épuisement (2014), consultable même sans état actif. Les niveaux d’épuisement affichent tous les effets cumulés. Le bouton « Tour suivant » suit l’ordre d’initiative, ignore les participants à 0 PV et incrémente les rounds.
@@ -28,9 +28,9 @@ Les informations détaillées sont réparties entre « Actions & sorts », « Tr
 
 Les données sont stockées dans le localStorage du navigateur, pas dans le dépôt ni sur le serveur Python. Une suppression des données du navigateur ou l’utilisation d’un autre profil peut les faire disparaître. L’export JSON permet leur transfert et leur sauvegarde. En cas d’échec du stockage, un message demande d’exporter les données.
 
-Le bestiaire contient 334 entrées (créatures, PNJ et variantes de formes) du *System Reference Document 5.1*, par Wizards of the Coast LLC, sous licence CC BY 4.0. Les textes français sont adaptés de la traduction communautaire pour FoundryVTT (adgranger et contributeurs), avec licence MIT conservée dans `licenses/`. Voir [SOURCES.md](SOURCES.md) pour les versions exactes, adaptations et crédits. Les monstres des suppléments officiels qui ne font pas partie du SRD ne sont pas inclus. Aucune ressource distante n’est chargée au démarrage.
+Le fichier SRD contient 334 entrées (créatures, PNJ et variantes de formes) du *System Reference Document 5.1*, par Wizards of the Coast LLC, sous licence CC BY 4.0. Les textes français sont adaptés de la traduction communautaire pour FoundryVTT (adgranger et contributeurs), avec licence MIT conservée dans `licenses/`. Voir [SOURCES.md](SOURCES.md) pour les versions exactes, adaptations et crédits. Les profils de La Tombe de l’Annihilation sont conservés dans un fichier de campagne séparé ; les autres suppléments ne sont pas inclus. Aucune ressource distante n’est chargée au démarrage.
 
-Conserver le dossier `data` à côté de `index.html` : il contient le bestiaire. Les fiches personnelles sont indépendantes du catalogue intégré et restent sauvegardées dans le navigateur. Une mise à jour du catalogue ne les écrase pas.
+Conserver le dossier `data` à côté de `index.html` : `bestiary.json` contient le SRD et `tomb-of-annihilation.json` les compléments de campagne. Les fiches personnelles sont indépendantes du catalogue intégré et restent sauvegardées dans le navigateur. Une mise à jour du catalogue ne les écrase pas.
 
 ## Vérifications
 
@@ -83,3 +83,15 @@ Une seule case **Initiative commune des monstres** règle l’ensemble des parti
 Les **PJ** et **PNJ** gardent une case individuelle. Les PNJ génériques du SRD (gardes, bandits, mages, prêtres, etc.) sont reconnus automatiquement ; cela ne concerne pas tous les humanoïdes : un gobelin reste par défaut un monstre. Les fiches personnelles peuvent être créées avec le type PNJ.
 
 Dans la fiche d’un participant, **Rôle dans ce combat** permet de choisir Monstre, PNJ ou PJ sans modifier sa fiche du catalogue. Passer au rôle Monstre adopte l’initiative commune ; passer au rôle PNJ ou PJ conserve le score actuel et le rend modifiable individuellement.
+
+## La Tombe de l’Annihilation
+
+Dans **Fiches → Campagne**, choisir **La Tombe de l’Annihilation**. Les filtres de nom, type, PJ/PNJ/créature et FP restent combinables. Les noms anglais disponibles (Acererak, Dragonbait, etc.) et les variantes orthographiques sont aussi recherchables.
+
+Le catalogue ajoute **254 profils** au SRD : les **60 blocs de l’annexe D**, les profils en prose, les créatures citées renvoyant au Monster Manual, les PNJ et variantes des chapitres ainsi que les profils simplifiés des courses. **147 profils SRD existants** sont rattachés à la campagne sans être dupliqués. Cela donne 401 résultats pour cette campagne et 588 profils intégrés au total. Le relevé détaillé figure dans [TOA-COVERAGE.md](TOA-COVERAGE.md).
+
+**Consulter** affiche la provenance et les pages du livre fourni. Les valeurs corrigées ou complétées sont signalées : la tortue serpentine géante a un bloc incomplet dans le PDF ; la CA du ptérosaurien comporte une inversion 21/12. Les caractéristiques non publiées, notamment celles de Na et de certaines montures de course, restent « — / non indiqué », sans score fictif. Leur FP n’est pas inventé.
+
+Les variantes sont des fiches indépendantes : Syndra commence avec un maximum de 79 PV, Ras Nsi avec 107 PV et Jessamine avec 58 PV. Orvex est ajouté avec 3 PV restants et 3 niveaux d’épuisement ; Laz et Malkar avec 1 PV restant, 5 niveaux d’épuisement et les yeux bandés. Ces états initiaux s’appliquent lors de l’ajout depuis le catalogue. Les pertes quotidiennes de PV dues à la malédiction restent manuelles. Une duplication de rencontre restaure les PV maximum et efface les états comme auparavant.
+
+Les profils personnalisés gardent leur rattachement à la campagne. Le catalogue ne contient ni le PDF ni le récit complet de l’aventure. Les profils de campagne ne font pas partie du SRD et n’héritent pas de sa licence CC BY.

@@ -42,3 +42,24 @@ python3 scripts/build-bestiary.py /chemin/5e-database /chemin/foundryvtt-dnd5e-l
 ```
 
 La base est un fichier de données séparé des fiches personnelles, et n’est pas recopiée dans chaque sauvegarde du navigateur. Les participants ajoutés à un combat conservent leur copie dans l’export JSON.
+
+## La Tombe de l’Annihilation — document fourni par l’utilisateur
+
+Sources primaires : `Tombe_Annihilation_partie_1.pdf` et `Tombe_Annihilation_partie_2.pdf` fournis dans cette conversation, 129 pages chacun. Les numéros `sourcePages` renvoient à la pagination imprimée du livre, pas au numéro relatif de la deuxième partie. Les fichiers PDF et leur récit n’ont pas été ajoutés au dépôt.
+
+Le fichier `data/tomb-of-annihilation.json` est une adaptation en fiches de suivi : 254 profils supplémentaires et 147 références aux profils déjà présents dans le SRD. La liste figure dans `TOA-COVERAGE.md`. Les 60 blocs de statistiques de l’annexe D ont été relevés, y compris leurs continuations dans la colonne voisine. Le guerrier spirituel nain albinos, Na, la moufette de l’inventeur et les montures de course sont également traités depuis leurs descriptions ou tableaux. Les PNJ des chapitres héritent du profil explicitement indiqué, avec ses modifications propres ; les personnages simplement nommés sans statistiques et les objets/pièges ne reçoivent pas de profil inventé.
+
+Recoupements : les profils génériques français cités dans le livre reprennent la même traduction communautaire FoundryVTT (version `dnd5_fr-2.2.2.5`) déjà utilisée, et les données numériques des profils 2014 sont recoupées avec les fichiers structurés suivants :
+
+- https://raw.githubusercontent.com/adgranger/foundryvtt-dnd5e-lang-fr-fr/dnd5_fr-2.2.2.5/compendium_fr/dnd5e.monsters.json
+- https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-toa.json
+- https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-mm.json
+
+Les données secondaires n’ont pas été suivies aveuglément : les caractéristiques du Juggernaut de pierre (22/1/21/2/11/3) et du Palmier trois-fleurs (1/10/12/1/10/1) sont celles du PDF, la source secondaire présentant des copies incohérentes pour ces deux lignes. Les erreurs de reconnaissance de texte (lettres à la place de chiffres ou de dés) ont été corrigées. Deux anomalies sont signalées dans les fiches :
+
+- Tortue serpentine géante, p. 235 : CA, PV et vitesse absents du PDF fourni ; compléments du profil standard (CA 17, 75 PV, marche 9 m, nage 12 m ; CA 12 lorsqu’elle est à terre).
+- Ptérosaurien, p. 231 : le PDF affiche CA 21 ; valeur standard 12 retenue et correction affichée.
+
+Les valeurs non publiées restent `null` et s’affichent « non indiqué » : cela concerne Na, la moufette et les tableaux simplifiés de course. Un profil générique explicitement désigné dans le texte peut, en revanche, fournir les caractéristiques d’un PNJ nommé. Les effets de la malédiction mortelle, capacités et objets magiques demandent toujours l’intervention du MJ ; ce catalogue ne lance pas de dés ni ne résout les règles automatiquement.
+
+La campagne originale est une œuvre de Wizards of the Coast. Ces ajouts sont des adaptations de profils à partir du document fourni pour le suivi des parties ; ils ne sont pas du contenu SRD et ne sont pas présentés comme sous licence CC BY. Les notices MIT de la traduction communautaire restent conservées séparément. Le catalogue ne reproduit pas les illustrations, cartes ou chapitres narratifs de l’aventure.

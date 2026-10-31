@@ -7,11 +7,11 @@ export function validCreatureMetadata(sheet){
    (sheet.challengeRating==null || challengeRatings.includes(sheet.challengeRating)) &&
    (sheet.xp==null || Number.isFinite(sheet.xp)&&sheet.xp>=0);
 }
-export function filterLibrary(sheets,monsters,{search='',source='',kind='',type='',challenge=''}={}) {
+export function filterLibrary(sheets,monsters,{search='',source='',kind='',type='',challenge='',campaign=''}={}) {
  const personal=sheets.map(s=>({...s,librarySource:'personal'}));
  const builtIn=monsters.map(s=>({...s,librarySource:'bestiary'}));
- return [...personal,...builtIn].filter(s=>(!source||s.librarySource===source)&&(!kind||s.kind===kind)&&
+ return [...personal,...builtIn].filter(s=>(!source||s.librarySource===source)&&(!campaign||(s.campaigns||[]).includes(campaign))&&(!kind||s.kind===kind)&&
    (!type||s.kind!=='PJ'&&s.creatureType===type)&&
    (challenge===''||s.kind!=='PJ'&&s.challengeRating!=null&&s.challengeRating===Number(challenge))&&
-   normalized(s.name).includes(normalized(search))).sort((a,b)=>a.name.localeCompare(b.name,'fr'));
+   [s.name,s.englishName,...(s.aliases||[])].some(name=>normalized(name).includes(normalized(search)))).sort((a,b)=>a.name.localeCompare(b.name,'fr'));
 }

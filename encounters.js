@@ -54,7 +54,7 @@ export function validSheet(p) {
   return !!(p && validCreatureMetadata(p) && typeof p.id === 'string' && p.id.length > 0 &&
     typeof p.name === 'string' && participantKinds.includes(p.kind) &&
     Number.isFinite(p.maxHp) && p.maxHp >= 1 && Number.isFinite(p.ac) &&
-    Array.isArray(p.stats) && p.stats.length === 6 && p.stats.every(n => Number.isInteger(n) && n >= 1 && n <= 30) &&
+    Array.isArray(p.stats) && p.stats.length === 6 && p.stats.every(n => n === null || Number.isInteger(n) && n >= 1 && n <= 30) &&
     ['speed','skills','actions','traits'].every(key => typeof p[key] === 'string'));
 }
 export function validCombat(c) {
