@@ -1,5 +1,5 @@
 export function damage(p, amount) { p.hp = Math.max(0, Math.min(p.maxHp, p.hp + amount)); }
-export function ordered(participants) { return [...participants].sort((a,b)=>b.initiative-a.initiative || a.name.localeCompare(b.name,'fr')); }
+export function ordered(participants) { return [...participants].sort((a,b)=>b.initiative-a.initiative || Number(a.kind==='Créature')-Number(b.kind==='Créature') || a.name.localeCompare(b.name,'fr')); }
 export function advance(combat) {
  const list=ordered(combat.participants); if(!list.some(p=>p.hp>0)) return;
  let index=list.findIndex(p=>p.id===combat.active);

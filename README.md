@@ -14,11 +14,11 @@ Ouvrir l’adresse locale du serveur dans son navigateur. `npm start` lance la m
 
 ## Utilisation
 
-1. Créer les fiches PJ dans « Fiches », avec caractéristiques, compétences, attaques, sorts et traits. Le bestiaire local propose 334 entrées du SRD 5.1 de 2014 en français.
+1. Préparer et nommer une rencontre dans « Rencontres », puis créer les fiches PJ et PNJ dans « Fiches », avec caractéristiques, compétences, attaques, sorts et traits. Le bestiaire local propose 334 entrées du SRD 5.1 de 2014 en français.
 2. Ajouter les participants à la rencontre ; une créature peut être ajoutée plusieurs fois.
-3. Saisir chaque initiative puis commencer le combat. Les égalités sont départagées alphabétiquement ; ajuster les initiatives manuellement si nécessaire.
+3. Saisir l’initiative commune des monstres et les initiatives individuelles des PJ et PNJ, puis commencer le combat. À initiative égale, les PJ/PNJ jouent avant le groupe de monstres ; les égalités dans chacun de ces ensembles sont départagées alphabétiquement.
 4. Cliquer sur un participant pour consulter sa fiche compacte en deux colonnes et gérer ses PV, CA, états, épuisement et notes. Le menu « Appliquer un état » ajoute un état et affiche ses effets ; la croix le retire. « ? Règles des états » ouvre le référentiel des 14 états et de l’épuisement (2014), consultable même sans état actif. Les niveaux d’épuisement affichent tous les effets cumulés. Le bouton « Tour suivant » suit l’ordre d’initiative, ignore les participants à 0 PV et incrémente les rounds.
-5. Exporter régulièrement une sauvegarde JSON. L’import remplace les fiches et la rencontre après confirmation.
+5. Exporter régulièrement une sauvegarde JSON. L’import remplace les fiches et toutes les rencontres après confirmation.
 
 Les fiches du catalogue et les copies en combat sont indépendantes. Les états et l’épuisement sont des marqueurs : leurs effets mécaniques sont appliqués manuellement par le MJ. Les PJ à 0 PV sont ignorés par le passage des tours ; leurs sauvegardes contre la mort restent à suivre à la table. La mort n’est pas automatiquement déduite d’un état. Les durées se suivent dans les effets de sorts et les notes ; la concentration liée aux participants apparaît sur la fiche du lanceur.
 
@@ -64,4 +64,22 @@ Le **facteur de puissance (FP)** est l’indice de danger d’une créature dans
 
 ## Aperçu des prochains tours
 
-Le bandeau au-dessus du combat affiche **Maintenant → Ensuite → Puis**, avec le round prévu. La prochaine fiche est repérée en vert dans l’ordre d’initiative, la fiche active en doré. Cliquer sur le bandeau consulte une fiche sans faire avancer le combat. Les participants à 0 PV sont ignorés, comme par « Tour suivant ». Avant le démarrage, le bandeau annonce les premiers participants selon les initiatives saisies. Les égalités utilisent toujours l’ordre alphabétique.
+Le bandeau au-dessus du combat affiche **Maintenant → Ensuite → Puis**, avec le round prévu. La prochaine fiche est repérée en vert dans l’ordre d’initiative, la fiche active en doré. Cliquer sur le bandeau consulte une fiche sans faire avancer le combat. Les participants à 0 PV sont ignorés, comme par « Tour suivant ». Avant le démarrage, le bandeau annonce les premiers participants selon les initiatives saisies. À initiative égale, les PJ et PNJ précèdent les monstres, afin de conserver les monstres ensemble ; l’ordre alphabétique départage chaque ensemble.
+
+## Préparer plusieurs combats
+
+L’onglet **Rencontres** regroupe les combats enregistrés. **Préparer un combat** crée une rencontre vide que l’on peut nommer, composer et régler avant la partie. Dans le combat, le menu **Rencontre** permet de passer directement de l’une à l’autre. Le bestiaire indique le nom du combat dans lequel il ajoutera les participants.
+
+Chaque rencontre garde ses propres participants, PV, CA modifiées, états, effets de sorts, notes, initiatives, round et tour en cours. Changer de rencontre ne remet rien à zéro ; la rencontre sélectionnée est retrouvée après rechargement. Les fiches personnelles sont communes à toutes les rencontres, mais les copies de combat évoluent indépendamment : les blessures ne sont pas transférées automatiquement d’un combat à l’autre.
+
+**Dupliquer** prépare un nouveau combat avec la même composition et les mêmes valeurs maximum. Les PV sont restaurés, les initiatives reviennent à 0, les états, l’épuisement, les effets et les notes de combat sont effacés ; le suivi repart au round 1. La rencontre d’origine reste intacte. **Renommer** conserve le suivi ; **Supprimer** exige une confirmation et supprime uniquement la rencontre choisie. Après suppression de la dernière, une rencontre vide est créée.
+
+L’export JSON contient **toutes les rencontres**, la sélection actuelle et les fiches personnelles. Les anciennes sauvegardes à un seul combat sont importées dans une « Rencontre importée », sans perdre le suivi. Si les anciens monstres avaient des initiatives différentes, elles restent en place jusqu’à la saisie d’une initiative commune.
+
+## Initiative commune des monstres et initiatives individuelles
+
+Une seule case **Initiative commune des monstres** règle l’ensemble des participants dont le rôle est **Monstre** dans la rencontre. Elle s’applique aussi aux monstres ajoutés ensuite ; chaque rencontre possède sa propre valeur. Les monstres continuent à jouer l’un après l’autre, avec le même score d’initiative. Aucun jet de dé n’est effectué.
+
+Les **PJ** et **PNJ** gardent une case individuelle. Les PNJ génériques du SRD (gardes, bandits, mages, prêtres, etc.) sont reconnus automatiquement ; cela ne concerne pas tous les humanoïdes : un gobelin reste par défaut un monstre. Les fiches personnelles peuvent être créées avec le type PNJ.
+
+Dans la fiche d’un participant, **Rôle dans ce combat** permet de choisir Monstre, PNJ ou PJ sans modifier sa fiche du catalogue. Passer au rôle Monstre adopte l’initiative commune ; passer au rôle PNJ ou PJ conserve le score actuel et le rend modifiable individuellement.

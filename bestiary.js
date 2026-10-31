@@ -11,7 +11,7 @@ export function filterLibrary(sheets,monsters,{search='',source='',kind='',type=
  const personal=sheets.map(s=>({...s,librarySource:'personal'}));
  const builtIn=monsters.map(s=>({...s,librarySource:'bestiary'}));
  return [...personal,...builtIn].filter(s=>(!source||s.librarySource===source)&&(!kind||s.kind===kind)&&
-   (!type||s.kind==='Créature'&&s.creatureType===type)&&
-   (challenge===''||s.kind==='Créature'&&s.challengeRating!=null&&s.challengeRating===Number(challenge))&&
+   (!type||s.kind!=='PJ'&&s.creatureType===type)&&
+   (challenge===''||s.kind!=='PJ'&&s.challengeRating!=null&&s.challengeRating===Number(challenge))&&
    normalized(s.name).includes(normalized(search))).sort((a,b)=>a.name.localeCompare(b.name,'fr'));
 }
